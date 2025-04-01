@@ -12,7 +12,7 @@ function getComputerchoice()
         return "scissors"
 }
 
-const computerchoiceval=getComputerchoice();
+
 
 function getHumanChoice()
 {
@@ -23,13 +23,11 @@ function getHumanChoice()
 
 
 
-function playround(computerSelection)
+function playround(computerchoiceval)
 {
-    for(let i=0;i<5;i++)
-    {
         const humanchoicevalue=getHumanChoice();
 
-        if(humanchoicevalue==computerSelection)
+        if(humanchoicevalue==computerchoiceval)
         {
             alert(`It is a tie.Both chose-${computerchoiceval}`);
     
@@ -39,20 +37,22 @@ function playround(computerSelection)
             alert(`The Scores are Human-${humanScore} & Computer-${computerScore}`)
         }
         else if(
-            (humanchoicevalue=="rock" && computerSelection=="scissors") || (humanchoicevalue=="paper" && computerSelection=="rock") || (humanchoicevalue=="scissors" && computerSelection=="paper"))
+            (humanchoicevalue=="rock" && computerchoiceval=="scissors") || (humanchoicevalue=="paper" && computerchoiceval=="rock") || (humanchoicevalue=="scissors" && computerchoiceval=="paper"))
         {
-            alert(`You Win!! ${humanchoicevalue} beats ${computerSelection}`)
+            alert(`You Win!! ${humanchoicevalue} beats ${computerchoiceval}`)
             humanScore++;
             alert(`Human-${humanScore} & Computer- ${computerScore}`)
         }
         else 
         {
-            alert(`Sorry You Lost!${computerSelection} beats ${humanchoicevalue}`);
+            alert(`Sorry You Lost!${computerchoiceval} beats ${humanchoicevalue}`);
             computerScore++;
             alert(`Human-${humanScore} & Computer-${computerScore}`)
         }
-    }
    
 }
-
-playround(computerchoiceval)
+for(let i=1;i<=5;i++)
+{
+    const computerchoiceval=getComputerchoice(); 
+    playround(computerchoiceval)
+}
